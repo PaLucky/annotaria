@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="it">
+	<head>
+		<title> AnnOtaria </title>
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+		<meta charset="utf-8"/>
+		<!--Scripts-->
+		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script> 	<!--Jquery generic-->
+		<script type="text/javascript" src="jqueryui/jquery-ui.min.js"></script>					<!--Jquery UI-->
+		<script type="text/javascript" src="scripts/jquery.nanoscroller.js"></script>				<!--Nanoscroller Scripts-->
+		<script type="text/javascript" src="scripts/scripts.js"></script>							<!--Main Scripts-->
+		<!--CSS-->
+		<link rel="stylesheet" type="text/css" href="jqueryui/jquery-ui.min.css" >					<!--Jquery UI css-->
+		<link rel="stylesheet" type="text/css" href="jqueryui/jquery-ui.theme.min.css" >
+		<link rel="stylesheet" type="text/css" href="styles/main.css">								<!--Main css-->
+		<link rel="stylesheet" type="text/css" href="styles/nanoscroller.css">						<!--Nanoscroller css-->
+		<link rel="stylesheet" type="text/css" href="styles/buttons-delete.css" >	                   <!--Buttons css-->
+		<!--Fonts-->
+		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Raleway:300">
+	</head>
+	<body onresize="getDim()">
+		<header>
+			<div id="switcher">
+				<div id="mode">
+					<img id="menu_ico" src="images/toggle_ico_down.png" alt="menu_ico" />
+					<span id="mode_txt">Reader Mode</span>
+				</div>
+				<div id="mode_icons">
+					<img id="reader_ico" src="images/reader_ico.png" alt="reader_ico">
+					<img id="annotator_ico" src="images/annotator_disabled_ico.png" alt="annotator_ico">
+				</div>
+			</div>
+			<div id="logo">Annotaria</div>
+			<nav>
+				<ul>
+					<li><button id="help_btn" title="Help">Help</button></li>
+					<li><button id="about_btn" title="About">About</button></li>
+				</ul>
+			</nav>
+		</header>
+		<section id="main">
+			<section id="tabs">
+				<div id="docmain" class="nano">
+					<ul id="docarea" class="nano-content noselect"></ul>
+				</div>
+				<section class="nano">
+					<div class="nano-content"></div>
+				</section>
+			</section>
+			<section id="properties">
+				<div id="fram-filters">
+					<div id="num-ann-fram">N° Annotazioni sul frammento: <span></span></div>
+					<h3>Filtra annotazioni:</h3>
+					<label>Dal giorno:</label>
+					<input type="text" id="filter-fram-date"></input><div id="num-ann-fram_date"></div><br>
+					<label>Per autore:</label>
+			    	<select id="filter-fram-author">
+			    		<option >Tutti gli autori</option>
+			    	</select><div id="num-ann-fram_author"></div><br>
+			    	<label>Per tipo:</label>
+			    	<select id="filter-fram-type">
+			    	    <option class="Tutti_i_tipi" value="Tutti i tipi">Tutti i tipi</option>
+			    		<option class="denotesPerson" value="denotesPerson">Persona</option>
+			    		<option class="denotesPlace" value="denotesPlace">Luogo</option>
+			    		<option class="denotesDisease" value="denotesDisease">Malattia</option>
+			    		<option class="hasSubject" value="hasSubject">Argomento Principale</option>
+			    		<option class="relatesTo" value="relatesTo">Risorsa DBpedia</option>
+			    		<option class="hasClarityScore" value="hasClarityScore">Chiarezza Del Frammento</option>
+			    		<option class="hasOriginalityScore" value="hasOriginalityScore">Originalita' Del Contenuto</option>
+			    		<option class="hasFormattingScore" value="hasFormattingScore">Presentazione e Formattazione</option>
+			    		<option class="cites" value="cities">Citazione</option>
+			    		<option class="hasComment" value="hasComment">Commento Personale</option>
+
+			    	</select><div id="num-ann-fram_type"></div>
+				</div>
+				<div id="minihelp-save" class="nano">
+					<p class="darimuovere">Per aggiungere annotazioni sul documento aprire il menù in alto a sinistra.<br>
+					Per annotare uno specifico frammento, selezionare l'area dello stesso prima di aprire il menù.</p>
+					<img id="duck" src="images/duck2.gif" class="darimuovere" alt="Duck" >
+					<ol class="nano-content noselect"></ol>
+				</div>
+				<div id="save-remove_btn">
+					<a class="button green" id="user_saveall">Salva tutto</a>
+					<a class="button red" id="user_removeall">Elimina tutto</a>
+				</div>
+			</div>
+			</section>
+		</section>
+		<section id="main-meta">
+			<section id="metaarea">
+				<section class="nano">
+					<div class="nano-content"></div>
+				</section>
+			</section>
+			<section id="sidemeta">
+				<div id="ann-filters">
+					<h3>Annotazioni sull'intero Documento</h3>
+					<h4>Filtra annotazioni:</h4>
+					<div class="filtWrapper">
+						<label>Dal giorno:</label>
+						<input type="text" id="filter-doc-date"></input>
+					</div>
+					<div class="filtWrapper">
+						<label>Per autore:</label>
+			    		<select id="filter-doc-author">
+			    			<option>Tutti gli autori</option>
+			    		</select>
+			    	</div>
+				</div>
+				<div id="ann-document" class="nano">
+					<div class="nano-content">
+						<h3>Autore</h3>
+						<p id="autore" class="sidecontentdinamic"></p>
+						<br>
+						<h3>Editore</h3>
+						<p id="editore" class="sidecontentdinamic"></p>
+						<br>
+						<h3>Anno di Pubblicazione</h3>
+						<p id="annopubblicazione" class="sidecontentdinamic"></p>
+						<br>
+						<h3>Titolo</h3>
+						<p id="titolodocumento" class="sidecontentdinamic"></p>
+						<br>
+						<h3>Abstract</h3>
+						<p id="abstract" class="sidecontentdinamic"></p>
+						<br>
+						<h3>Commento</h3>
+						<p id="commento" class="sidecontentdinamic"></p>
+						<br>
+						<h3>Titolo Breve</h3>
+						<p id="titolobreve" class="sidecontentdinamic"></p>
+					</div>
+				</div>
+			</section>
+		</section>
+		<section id="main-help">
+			<iframe src="//www.youtube.com/embed/s2tUN7VFIUs?rel=0" frameborder="0" allowfullscreen></iframe>
+			<div>
+				<img id="help-return" src="images/toggle_ico_left.png" />
+			</div>
+		</section>
+		<section id="main-about">
+			<div>
+				<img id="about-return" src="images/toggle_ico_left.png" /><br><br><div><h3>Davide Altini</h3><br><br><div><h3>Gabriele De Luca</h3><br><br><div><h3>Paolo Luchetti</h3><br><br><div><h3>Michele Ferretti</h3><div>
+			</div>
+		</section>
+		<section id="widgetarea">
+			<div id="widLeft">
+				<img id="docIco" src="images/toggle_ico_left.png" />
+				<span id="docToggle">Nascondi Documenti</span>
+			</div>
+			<div id="widCenter">
+				<a class="button blue" id="mainToggle">Vai ai Metadati</a>
+			</div>
+			<div id="widRight">
+				<span id="proToggle">Nascondi Filtri Annotazioni</span>
+				<img id="proIco" src="images/toggle_ico_right.png" />
+			</div>
+			<div id="numdoc"></div>
+		</section>
+		<div id="backmodal"></div> 
+		<div id="loader" class="fixed"></div>
+		<div id="modale" class="nano fixed"><div class="nano-content"></div></div>
+		<div id="menu">
+			<h3>Aggiungi Annotazione Sul Documento</h3>
+			<a class="inseriscidoc red button" value="hasAuthor">Autore</a>
+			<a class="inseriscidoc red button" value="hasPublisher">Editore</a>
+			<a class="inseriscidoc red button" value="hasPublicationYear">Anno Pubblicazione</a>
+			<a class="inseriscidoc red button" value="hasTitle">Titolo</a>
+			<a class="inseriscidoc red button" value="hasAbstract">Riassunto</a>
+			<a class="inseriscidoc red button" value="hasShortTitle">Titolo Breve</a>
+			<a class="inseriscidoc red button" value="hasComment">Commento Personale</a>
+			<div>
+				<h3>Aggiungi Annotazione Sul Frammento</h3>
+				<a class="inseriscifram blue button" value="denotesPerson">Persona</a>
+				<a class="inseriscifram blue button" value="denotesPlace">Luogo</a>
+				<a class="inseriscifram blue button" value="denotesDisease">Malattia</a>
+				<a class="inseriscifram blue button" value="hasSubject">Argomento Principale</a>
+				<a class="inseriscifram blue button" value="relatesTo">Risorsa DBPedia</a>
+				<a class="inseriscifram blue button" value="hasClarityScore">Chiarezza Del Frammento</a>
+				<a class="inseriscifram blue button" value="hasOriginalityScore">Originalità Del Contenuto </a>
+				<a class="inseriscifram blue button" value="hasFormattingScore">Presentazione e Formattazione</a>
+				<a class="inseriscifram blue button" value="cites">Citazione</a>
+				<a class="inseriscifram blue button" value="hasComment_fram">Commento Personale</a>
+			</div>
+			<img src="images/toggle_ico_up.png" alt="chiudimenu" />
+		</div>
+	</body>
+</html>

@@ -1,0 +1,139 @@
+.button {
+	display: inline-block;
+	
+	border: 1px solid #dcdcdc;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	
+	cursor: default;
+	font-size: 11px;
+	font-weight: bold;
+	text-align: center;
+	height: 27px;
+	line-height: 27px;
+	min-width: 45px;
+	padding: 0 8px;
+	text-decoration: none;
+}
+
+.button:hover {
+	
+	border: 1px solid #C6C6C6;
+	color: #333;
+	cursor: pointer;
+	-webkit-box-shadow: 0px 1px 1px rgba(0,0,0,.1);
+	-moz-box-shadow: 0px 1px 1px rgba(0,0,0,.1);
+	box-shadow: 0px 1px 1px rgba(0,0,0,.1);
+}
+
+/* blue */
+
+.button.blue {
+	background-color: #4EB1BA;
+	background-image: -webkit-linear-gradient(top,#4eb1ba,#12919a);
+	background-image: -moz-linear-gradient(top,#4eb1ba,#12919a);
+	background-image: -ms-linear-gradient(top,#4eb1ba,#12919a);
+	background-image: -o-linear-gradient(top,#4eb1ba,#12919a);
+	background-image: linear-gradient(top,#4eb1ba,#12919a);
+
+	border: none;
+	color: white;
+}
+
+.button.blue:active {
+	background-color: #4EB1BA;
+	background-image: -webkit-linear-gradient(top,#12919a,#4eb1ba);
+	background-image: -moz-linear-gradient(top,#12919a,#4eb1ba);
+	background-image: -ms-linear-gradient(top,#12919a,#4eb1ba);
+	background-image: -o-linear-gradient(top,#12919a,#4eb1ba);
+	background-image: linear-gradient(top,#12919a,#4eb1ba);
+
+	-webkit-box-shadow: 0 2px 2px rgba(0,0,0,.1);
+	-moz-box-shadow: 0 2px 2px rgba(0,0,0,.1);
+	box-shadow: 0 2px 2px rgba(0,0,0,.1);
+}
+
+.button.red {
+	background-color: #880000;
+	background-image: -webkit-linear-gradient(top,#880000,#690000);
+	background-image: -moz-linear-gradient(top,#880000,#690000);
+	background-image: -ms-linear-gradient(top,#880000,#690000);
+	background-image: -o-linear-gradient(top,#880000,#690000);
+	background-image: linear-gradient(top,#880000,#690000);
+
+	border: none;
+	color: white;
+}
+
+.button.red:active {
+	background-color: #880000;
+	background-image: -webkit-linear-gradient(top,#690000,#880000);
+	background-image: -moz-linear-gradient(top,#690000,#880000);
+	background-image: -ms-linear-gradient(top,#690000,#880000);
+	background-image: -o-linear-gradient(top,#690000,#880000);
+	background-image: linear-gradient(top,#690000,#880000);
+
+	-webkit-box-shadow: 0 2px 2px rgba(0,0,0,.1);
+	-moz-box-shadow: 0 2px 2px rgba(0,0,0,.1);
+	box-shadow: 0 2px 2px rgba(0,0,0,.1);
+}
+
+.button.green {
+	background-color: #007700;
+	background-image: -webkit-linear-gradient(top,#007700,#006300);
+	background-image: -moz-linear-gradient(top,#007700,#006300);
+	background-image: -ms-linear-gradient(top,#007700,#006300);
+	background-image: -o-linear-gradient(top,#007700,#006300);
+	background-image: linear-gradient(top,#007700,#006300);
+
+	border: none;
+	color: white;
+}
+
+.button.green:active {
+	background-color: #007700;
+	background-image: -webkit-linear-gradient(top,#006300,#007700);
+	background-image: -moz-linear-gradient(top,#006300,#007700);
+	background-image: -ms-linear-gradient(top,#006300,#007700);
+	background-image: -o-linear-gradient(top,#006300,#007700);
+	background-image: linear-gradient(top,#006300,#007700);
+
+	-webkit-box-shadow: 0 2px 2px rgba(0,0,0,.1);
+	-moz-box-shadow: 0 2px 2px rgba(0,0,0,.1);
+	box-shadow: 0 2px 2px rgba(0,0,0,.1);
+}
+
+/*
+.button.blue:hover {
+	background-color: #4EB1BA;
+	background-image: -webkit-linear-gradient(top,#4eb1ba,#12919a);
+	background-image: -moz-linear-gradient(top,#4eb1ba,#12919a);
+	background-image: -ms-linear-gradient(top,#4eb1ba,#12919a);
+	background-image: -o-linear-gradient(top,#4eb1ba,#12919a);
+	background-image: linear-gradient(top,#4eb1ba,#12919a);
+
+	border: solid 1px #4EB1BA;
+	color: white;
+}
+*/
+
+/* defaults */
+
+.button.default:active {
+	-webkit-box-shadow: inset 0px 1px 2px rgba(0,0,0,.1);
+	-moz-box-shadow: inset 0px 1px 2px rgba(0,0,0,.1);
+	box-shadow: inset 0px 1px 2px rgba(0,0,0,.1);
+	color: black;
+}
+.button.blue:active, .button.red:active, .button.green:active,
+.button.pinkish:active, .button.maroonish:active,
+.button.golden:active, .button.brownish:active,
+.button.grayish:active, .button.skinish:active,
+.button.yellowish:active, .button.goldenish:active,
+.button.pink:active, .button.violet:active, .button.orange:active,
+.button.seagreen:active {
+	-webkit-box-shadow: inset 0px 1px 2px rgba(0,0,0,.3);
+	-moz-box-shadow: inset 0px 1px 2px rgba(0,0,0,.3);
+	box-shadow: inset 0px 1px 2px rgba(0,0,0,.3);
+}
